@@ -1,0 +1,21 @@
+# OS / editor cruft
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Local, machine-specific overrides (keep these out of the repo)
+config/hypr/local.conf
+config/hypr/monitors.conf
+
+# Personal wallpapers can be large. By default they ARE committed so the rice
+# is reproducible. Uncomment to keep images out of git instead:
+# config/hypr/wallpapers/*.jpg
+# config/hypr/wallpapers/*.png
+!config/hypr/wallpapers/README.md
+
+# Backups created by install.sh
+*.rice-backup
+
+# stray sandbox scratch file (cannot be unlinked in this env)
+err.txt

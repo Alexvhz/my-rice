@@ -6,6 +6,12 @@
 #  (Powerlevel10k comes from the AUR and is handled separately in install.sh.)
 # =============================================================================
 
+# --- NVIDIA (uncomment these 4 lines if you have an NVIDIA GPU) ---
+# nvidia-dkms               # kernel driver (use `nvidia` for the stock kernel)
+# nvidia-utils              # userspace driver
+# egl-wayland               # EGLStream support for Wayland
+# libva-nvidia-driver       # hardware video acceleration
+
 # --- Core Wayland / Hyprland ---
 hyprland                    # the compositor
 hyprpaper                   # wallpaper daemon

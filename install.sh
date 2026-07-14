@@ -133,10 +133,34 @@ link_dotfiles() {
     run "touch '$CONFIG_SRC/hypr/local.conf' '$CONFIG_SRC/hypr/monitors.conf'"
     ok "Configs linked"
 
+    guard_lua_shadow
+
     # Wallpaper check.
     if [[ ! -f "$CONFIG_SRC/hypr/wallpapers/wall.png" ]] && ! $DRY_RUN; then
         warn "No wallpaper at config/hypr/wallpapers/wall.png"
         warn "Drop an image there named wall.png (hyprpaper + hyprlock use it)."
+    fi
+}
+
+# Since Hyprland 0.55, a hyprland.lua (if present) is loaded INSTEAD of
+# hyprland.conf. A fresh Hyprland boot auto-generates one, which then silently
+# shadows this rice. This makes sure our plain-text hyprland.conf is the config
+# Hyprland actually loads.
+guard_lua_shadow() {
+    local lua="$HOME/.config/hypr/hyprland.lua"
+    local conf="$HOME/.config/hypr/hyprland.conf"
+
+    if [[ -e "$lua" || -L "$lua" ]]; then
+        run "mv -f '$lua' '${lua}${BACKUP_SUFFIX}'"
+        warn "Found a hyprland.lua that would override this rice — moved it to"
+        warn "  ${lua/#$HOME/\~}${BACKUP_SUFFIX}. Hyprland will now load hyprland.conf."
+    fi
+
+    if $DRY_RUN; then return; fi
+    if [[ -e "$conf" ]]; then
+        ok "Active Hyprland config: hyprland.conf (no .lua shadow)"
+    else
+        warn "hyprland.conf not found at ~/.config/hypr — did the hypr link fail above?"
     fi
 }
 

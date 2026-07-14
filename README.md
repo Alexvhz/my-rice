@@ -68,6 +68,46 @@ cp your-wallpaper.png config/hypr/wallpapers/wall.png
 Because the configs are **symlinked**, any change you make to your live setup is a
 change to this repo — just `git commit` to version it.
 
+## NVIDIA
+
+This rice ships with the NVIDIA env vars and a **software cursor** already set in
+`config/hypr/hyprland.conf` (the `cursor { no_hardware_cursors = true }` block +
+`env = ...nvidia` lines). Without these, NVIDIA + Wayland commonly gives you an
+**invisible cursor**, black windows, or flicker.
+
+To use them:
+
+1. Uncomment the four NVIDIA lines at the top of `packages.txt` (or install
+   manually): `nvidia-dkms nvidia-utils egl-wayland libva-nvidia-driver`.
+2. Enable DRM modesetting on the kernel cmdline — add `nvidia_drm.modeset=1`
+   (recent drivers enable this by default, but set it to be safe). For GRUB, edit
+   `GRUB_CMDLINE_LINUX_DEFAULT` in `/etc/default/grub`, then
+   `sudo grub-mkconfig -o /boot/grub/grub.cfg`. Reboot.
+
+Not on NVIDIA? Delete the `# NVIDIA` block in `hyprland.conf` — it's harmless but
+unnecessary.
+
+## Hyprland 0.55+ and the Lua config
+
+As of Hyprland **0.55**, configs can be written in **Lua** (`hyprland.lua`), and if
+that file exists it is loaded **instead of** `hyprland.conf`. A fresh Hyprland boot
+auto-generates a default `hyprland.lua`, which will silently **shadow this rice**.
+
+This repo deliberately stays on the plain-text `hyprland.conf` (hyprlang) — it's
+deprecated but fully supported, and it's the format that's actually tested here.
+`install.sh` moves any stray `hyprland.lua` aside (to `*.rice-backup`) so
+`hyprland.conf` is what loads. If you ever boot to the default "welcome" screen with
+no cursor, that means a `hyprland.lua` snuck back in:
+
+```bash
+mv ~/.config/hypr/hyprland.lua ~/.config/hypr/hyprland.lua.bak
+hyprctl reload
+```
+
+When you want to move to Lua for good, Hyprland has a built-in converter —
+run `execute_conversion()` from a Hyprland Lua context (see the
+[Lua-ification announcement](https://hypr.land/news/26_lua/)).
+
 ## Keybinds (cheat sheet)
 
 `SUPER` is the modifier.
