@@ -1,0 +1,29 @@
+/* wlogout — Atom OneDark blue. */
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    background-image: none;
+    transition: 0.2s ease;
+}
+
+window {
+    background: rgba(40, 44, 52, 0.85);
+}
+
+button {
+    color: #abb2bf;
+    background: rgba(59, 64, 72, 0.55);
+    border: 2px solid transparent;
+    border-radius: 16px;
+    margin: 12px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 28%;
+}
+
+button:focus,
+button:hover {
+    color: #282c34;
+    background-color: #61afef;
+    border: 2px solid #61afef;
+    outline: none;
+}

@@ -1,0 +1,40 @@
+/* swaync — Atom OneDark blue notification center. */
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+}
+
+.control-center {
+    background: rgba(40, 44, 52, 0.92);
+    border: 1px solid rgba(97, 175, 239, 0.3);
+    border-radius: 16px;
+    color: #abb2bf;
+    margin: 8px;
+}
+
+.control-center .widget-title { color: #61afef; font-weight: 700; padding: 6px 4px; }
+.control-center .widget-title button {
+    color: #abb2bf; background: rgba(59, 64, 72, 0.6);
+    border-radius: 10px; padding: 4px 10px;
+}
+.control-center .widget-title button:hover { background: #61afef; color: #282c34; }
+
+.notification-row .notification {
+    background: rgba(59, 64, 72, 0.55);
+    border-radius: 12px;
+    margin: 6px 8px;
+}
+.notification-row .notification:hover { background: rgba(97, 175, 239, 0.15); }
+.notification-row .notification .summary { color: #61afef; font-weight: 700; }
+.notification-row .notification .body { color: #abb2bf; }
+.close-button {
+    color: #282c34; background: #e06c75;
+    border-radius: 8px; margin: 4px;
+}
+
+/* Floating popups */
+.floating-notifications .notification {
+    background: rgba(40, 44, 52, 0.92);
+    border: 1px solid rgba(97, 175, 239, 0.3);
+    border-radius: 12px;
+}

@@ -1,0 +1,123 @@
+/* ============================================================================
+   Waybar — Atom OneDark, frosted pill bar.
+   Palette:  bg #282c34 · fg #abb2bf · blue #61afef · cyan #56b6c2
+             green #98c379 · yellow #e5c07b · red #e06c75 · grey #3b4048
+   ========================================================================== */
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
+    font-size: 13px;
+    font-weight: 600;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
+}
+
+/* The whole bar = one frosted pill across the top. */
+window#waybar {
+    background: rgba(40, 44, 52, 0.82);       /* #282c34 @ 82% -> frosted */
+    color: #abb2bf;
+    border-radius: 16px;
+    border: 1px solid rgba(97, 175, 239, 0.25);  /* faint blue rim */
+}
+
+/* Generic module padding so everything sits nicely inside the pill. */
+#workspaces,
+#clock,
+#cpu,
+#memory,
+#custom-gpu,
+#network,
+#bluetooth,
+#battery,
+#custom-notification,
+#custom-power,
+#custom-archlogo {
+    padding: 0 10px;
+    margin: 4px 2px;
+    background: transparent;
+}
+
+/* ------------------------------ LEFT ------------------------------------- */
+/* Workspace indicators: pill-shaped, blue highlights the active desktop. */
+#workspaces {
+    padding: 0 4px;
+}
+#workspaces button {
+    padding: 0 9px;
+    margin: 4px 2px;
+    color: #5c6370;
+    background: rgba(59, 64, 72, 0.6);
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+#workspaces button.active {
+    color: #282c34;
+    background: #61afef;                       /* blue = active */
+    border-radius: 10px;
+}
+#workspaces button.urgent {
+    color: #282c34;
+    background: #e06c75;                       /* red = urgent */
+}
+#workspaces button:hover {
+    color: #61afef;
+    background: rgba(97, 175, 239, 0.15);
+}
+
+#custom-archlogo {
+    color: #61afef;
+    font-size: 17px;
+    padding-right: 12px;
+}
+
+/* ------------------------------ CENTER ----------------------------------- */
+#clock {
+    color: #abb2bf;
+    font-weight: 700;
+}
+
+/* ------------------------------ RIGHT (stats) ---------------------------- */
+#cpu       { color: #61afef; }
+#memory    { color: #56b6c2; }
+#custom-gpu { color: #c678dd; }
+
+/* ------------------------------ RIGHT (system) --------------------------- */
+#network   { color: #98c379; }
+#network.disconnected { color: #e06c75; }
+#bluetooth { color: #61afef; }
+#bluetooth.disabled { color: #5c6370; }
+
+#battery   { color: #abb2bf; }
+#battery.charging { color: #98c379; }
+#battery.warning:not(.charging)  { color: #e5c07b; }
+#battery.critical:not(.charging) {
+    color: #e06c75;
+    animation: blink 1s steps(2) infinite;
+}
+@keyframes blink {
+    to { color: #282c34; background: #e06c75; border-radius: 8px; }
+}
+
+#custom-notification {
+    color: #abb2bf;
+    padding: 0 12px;
+}
+
+#custom-power {
+    color: #e06c75;
+    padding: 0 14px 0 10px;
+    font-size: 14px;
+}
+#custom-power:hover {
+    color: #282c34;
+    background: #e06c75;
+    border-radius: 10px;
+}
+
+tooltip {
+    background: rgba(40, 44, 52, 0.96);
+    border: 1px solid #61afef;
+    border-radius: 10px;
+}
+tooltip label { color: #abb2bf; }

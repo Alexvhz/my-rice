@@ -1,0 +1,63 @@
+# =============================================================================
+#  Package list for the Atom OneDark Hyprland rice.
+#  Everything after a '#' is a comment and is ignored by install.sh.
+#  Blank lines are ignored too. One package name per line.
+#  These are all official-repo packages installed with pacman/yay.
+#  (Powerlevel10k comes from the AUR and is handled separately in install.sh.)
+# =============================================================================
+
+# --- Core Wayland / Hyprland ---
+hyprland                    # the compositor
+hyprpaper                   # wallpaper daemon
+hypridle                    # idle daemon (lock / screen-off)
+hyprlock                    # lock screen
+xdg-desktop-portal-hyprland # screen sharing / file pickers
+qt5-wayland
+qt6-wayland
+polkit-gnome                # graphical auth prompts
+
+# --- Bar / launcher / notifications ---
+waybar                      # top status bar
+rofi-wayland                # app launcher
+swaync                      # notification center (the bell in the bar)
+wlogout                     # power menu
+
+# --- Terminal / shell ---
+alacritty
+zsh
+zsh-autosuggestions
+zsh-syntax-highlighting
+fastfetch                   # startup greeting (logo + specs)
+
+# --- Fonts / theming ---
+ttf-jetbrains-mono-nerd
+ttf-nerd-fonts-symbols
+ttf-font-awesome
+papirus-icon-theme
+nwg-look                    # GTK theme picker for Wayland
+
+# --- Utilities the configs depend on ---
+btop                        # system monitor (opened from the bar's CPU/RAM)
+wl-clipboard
+cliphist                    # clipboard history
+grim                        # screenshots
+slurp                       # region selector
+brightnessctl
+playerctl
+pavucontrol
+pamixer
+network-manager-applet
+blueman
+bluez
+bluez-utils
+thunar
+thunar-archive-plugin
+gvfs
+xdg-user-dirs
+
+# --- Audio (PipeWire) ---
+pipewire
+pipewire-alsa
+pipewire-pulse
+pipewire-jack
+wireplumber

@@ -1,0 +1,57 @@
+# =============================================================================
+#  ~/.zshrc — Atom OneDark rice
+#  (Stored in the repo as zsh/zshrc; install.sh links it to ~/.zshrc)
+# =============================================================================
+
+# --- Powerlevel10k instant prompt (keep near the top) -----------------------
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# --- History ----------------------------------------------------------------
+HISTFILE=~/.zsh_history
+HISTSIZE=50000
+SAVEHIST=50000
+setopt SHARE_HISTORY HIST_IGNORE_ALL_DUPS HIST_IGNORE_SPACE INC_APPEND_HISTORY
+
+# --- Completion -------------------------------------------------------------
+autoload -Uz compinit && compinit -d "${XDG_CACHE_HOME:-$HOME/.cache}/zcompdump"
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'   # case-insensitive
+setopt AUTO_CD
+
+# --- Prompt: Powerlevel10k --------------------------------------------------
+# Installed from the AUR (`powerlevel10k`) at /usr/share/...
+if [[ -r /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme ]]; then
+  source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+elif [[ -r "$HOME/.local/share/powerlevel10k/powerlevel10k.zsh-theme" ]]; then
+  source "$HOME/.local/share/powerlevel10k/powerlevel10k.zsh-theme"
+fi
+
+# --- Plugins ----------------------------------------------------------------
+[[ -r /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] \
+  && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#5c6370'   # subtle grey suggestion
+
+# syntax-highlighting MUST be sourced last of the plugins
+[[ -r /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] \
+  && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# --- Aliases ----------------------------------------------------------------
+alias ls='ls --color=auto --group-directories-first'
+alias ll='ls -lh --color=auto --group-directories-first'
+alias la='ls -lha --color=auto --group-directories-first'
+alias grep='grep --color=auto'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias update='sudo pacman -Syu'
+alias ff='fastfetch'
+alias reload='source ~/.zshrc'
+
+# --- Greeting: distro logo + specs on every new shell -----------------------
+if [[ -o interactive ]] && command -v fastfetch >/dev/null 2>&1; then
+  fastfetch
+fi
+
+# --- p10k prompt config -----------------------------------------------------
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh

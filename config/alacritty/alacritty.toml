@@ -1,0 +1,59 @@
+# =============================================================================
+#  Alacritty — frosted Atom OneDark. Uses the modern TOML format.
+#  The frosted look comes from window.opacity + Hyprland's blur (see hyprland.conf).
+# =============================================================================
+
+[window]
+opacity = 0.90                 # translucency -> blur behind = frosted glass
+blur = true                    # honoured on some platforms; Hyprland blurs anyway
+padding = { x = 14, y = 12 }
+decorations = "none"
+dynamic_padding = true
+title = "Alacritty"
+class = { instance = "Alacritty", general = "Alacritty" }
+
+[font]
+size = 11.5
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+bold   = { family = "JetBrainsMono Nerd Font", style = "Bold" }
+italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
+
+[cursor]
+style = { shape = "Beam", blinking = "On" }
+
+[scrolling]
+history = 10000
+
+# ------------------------------- Atom OneDark --------------------------------
+[colors.primary]
+background = "#282c34"
+foreground = "#abb2bf"
+dim_foreground = "#7f848e"
+
+[colors.cursor]
+text   = "#282c34"
+cursor = "#61afef"             # blue cursor
+
+[colors.selection]
+text       = "#282c34"
+background = "#61afef"
+
+[colors.normal]
+black   = "#282c34"
+red     = "#e06c75"
+green   = "#98c379"
+yellow  = "#e5c07b"
+blue    = "#61afef"
+magenta = "#c678dd"
+cyan    = "#56b6c2"
+white   = "#abb2bf"
+
+[colors.bright]
+black   = "#5c6370"
+red     = "#e06c75"
+green   = "#98c379"
+yellow  = "#d19a66"
+blue    = "#61afef"
+magenta = "#c678dd"
+cyan    = "#56b6c2"
+white   = "#ffffff"

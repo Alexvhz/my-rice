@@ -1,0 +1,98 @@
+/* ============================================================================
+   Rofi theme — Atom OneDark, BLUE accent, frosted card.
+   ========================================================================== */
+* {
+    bg:        #282c34;
+    bg-alt:    #3b4048;
+    fg:        #abb2bf;
+    accent:    #61afef;   /* blue */
+    accent-2:  #56b6c2;   /* cyan */
+    urgent:    #e06c75;
+
+    background-color: transparent;
+    text-color:       @fg;
+    font:             "JetBrainsMono Nerd Font 12";
+}
+
+window {
+    transparency:     "real";
+    background-color: rgba(40, 44, 52, 0.85);   /* frosted */
+    border:           2px;
+    border-color:     @accent;
+    border-radius:    16px;
+    width:            640px;
+    padding:          0;
+}
+
+mainbox {
+    padding:  16px;
+    spacing:  12px;
+    children: [ "inputbar", "message", "listview" ];
+}
+
+inputbar {
+    background-color: @bg-alt;
+    border-radius:    12px;
+    padding:          10px 14px;
+    spacing:          10px;
+    children:         [ "prompt", "entry" ];
+}
+
+prompt {
+    text-color: @accent;
+    font:       "JetBrainsMono Nerd Font Bold 12";
+}
+
+entry {
+    placeholder:       "Search…";
+    placeholder-color: #5c6370;
+    text-color:        @fg;
+}
+
+listview {
+    lines:        8;
+    columns:      1;
+    scrollbar:    false;
+    spacing:      4px;
+    fixed-height: false;
+    dynamic:      true;
+}
+
+element {
+    padding:       9px 12px;
+    spacing:       10px;
+    border-radius: 10px;
+}
+
+element normal.normal   { text-color: @fg; }
+element alternate.normal { text-color: @fg; }
+
+element selected.normal {
+    background-color: @accent;   /* blue highlight */
+    text-color:       @bg;
+}
+element urgent.normal {
+    background-color: @urgent;
+    text-color:       @bg;
+}
+
+element-icon {
+    size:             22px;
+    vertical-align:   0.5;
+    background-color: transparent;
+}
+element-text {
+    vertical-align:   0.5;
+    background-color: transparent;
+    text-color:       inherit;
+}
+
+message {
+    padding:          0;
+}
+textbox {
+    background-color: @bg-alt;
+    text-color:       @accent-2;
+    border-radius:    10px;
+    padding:          8px 12px;
+}
