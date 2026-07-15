@@ -15,6 +15,7 @@
 # --- Core Wayland / Hyprland ---
 hyprland                    # the compositor
 hyprpaper                   # wallpaper daemon
+swaybg                      # wallpaper daemon (hyprland.conf autostart)
 hypridle                    # idle daemon (lock / screen-off)
 hyprlock                    # lock screen
 xdg-desktop-portal-hyprland # screen sharing / file pickers

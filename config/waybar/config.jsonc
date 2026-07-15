@@ -13,7 +13,7 @@
     "custom/archlogo": {
         "format": "󰣇",
         "tooltip": false,
-        "on-click": "/home/alex/.config/rofi/scripts/categories.sh"
+        "on-click": "~/.config/rofi/scripts/categories.sh"
     },
     "hyprland/workspaces": {
         "format": "{name}",
@@ -78,6 +78,6 @@
     "custom/power": {
         "format": "󰐥",
         "tooltip": false,
-        "on-click": "/home/alex/.config/rofi/scripts/power.sh"
+        "on-click": "~/.config/rofi/scripts/power.sh"
     }
 }

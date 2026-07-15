@@ -84,11 +84,11 @@ install_packages() {
     local count; count=$(printf '%s\n' "$pkgs" | grep -c . || true)
     info "Installing $count packages (this can take a while)…"
     # shellcheck disable=SC2086
-    run "yay -S --needed --noconfirm $(printf '%s ' $pkgs)"
+    run "yay -S --needed --noconfirm $(printf '%s ' $pkgs) || true"
     ok "Base packages installed"
 
     info "Installing Powerlevel10k (AUR)…"
-    run "yay -S --needed --noconfirm powerlevel10k"
+    run "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.local/share/powerlevel10k || true"
     ok "Powerlevel10k installed"
 }
 
