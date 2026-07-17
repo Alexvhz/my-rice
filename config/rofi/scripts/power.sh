@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
-options="  Lock
+options="  Lock
 󰗽  Logout
 ⏾  Suspend
-  Reboot
+  Reboot
 ⏻  Shutdown"
 chosen=$(printf '%s\n' "$options" | rofi -dmenu -i -p "Power" -theme "$HOME/.config/rofi/theme.rasi")
 case "$chosen" in

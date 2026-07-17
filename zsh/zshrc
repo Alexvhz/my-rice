@@ -3,10 +3,6 @@
 #  (Stored in the repo as zsh/zshrc; install.sh links it to ~/.zshrc)
 # =============================================================================
 
-# --- Powerlevel10k instant prompt (keep near the top) -----------------------
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 # --- History ----------------------------------------------------------------
 HISTFILE=~/.zsh_history
@@ -49,9 +45,13 @@ alias ff='fastfetch'
 alias reload='source ~/.zshrc'
 
 # --- Greeting: distro logo + specs on every new shell -----------------------
-if [[ -o interactive ]] && command -v fastfetch >/dev/null 2>&1; then
-  fastfetch
-fi
+#if [[ -o interactive ]] && command -v fastfetch >/dev/null 2>&1; then
+#  fastfetch
+#fi
 
 # --- p10k prompt config -----------------------------------------------------
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+
+if [[ -o interactive ]] && command -v fastfetch >/dev/null 2>&1; then
+	fastfetch
+fi
