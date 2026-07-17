@@ -1,0 +1,8 @@
+/* Wallpaper switcher — image-only grid, inherits colours from theme.rasi */
+@import "~/.config/rofi/theme.rasi"
+
+window       { width: 940px; }
+mainbox      { children: [ "listview" ]; padding: 16px; spacing: 0; }
+listview     { columns: 3; lines: 2; spacing: 14px; scrollbar: false; fixed-height: false; }
+element      { children: [ "element-icon" ]; padding: 8px; border-radius: 12px; }
+element-icon { size: 240px; border-radius: 8px; }
