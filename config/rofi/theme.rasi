@@ -16,7 +16,7 @@
 
 window {
     transparency:     "real";
-    background-color: rgba(40, 44, 52, 0.85);   /* frosted */
+    background-color: rgba(40, 44, 52, 0.90);   /* frosted */
     border:           2px;
     border-color:     @accent;
     border-radius:    16px;

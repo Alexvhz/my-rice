@@ -4,7 +4,7 @@
 # =============================================================================
 
 [window]
-opacity = 0.90                 # translucency -> blur behind = frosted glass
+opacity = 0.8
 blur = true                    # honoured on some platforms; Hyprland blurs anyway
 padding = { x = 14, y = 12 }
 decorations = "none"

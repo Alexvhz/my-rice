@@ -15,7 +15,7 @@
 
 /* The whole bar = one frosted pill across the top. */
 window#waybar {
-    background: rgba(40, 44, 52, 0.82);       /* #282c34 @ 82% -> frosted */
+    background: rgba(40, 44, 52, 0.55);       /* #282c34 @ 82% -> frosted */
     color: #abb2bf;
     border-radius: 16px;
     border: 1px solid rgba(97, 175, 239, 0.25);  /* faint blue rim */
@@ -116,7 +116,7 @@ window#waybar {
 }
 
 tooltip {
-    background: rgba(40, 44, 52, 0.96);
+    background: rgba(40, 44, 52, 0.8);
     border: 1px solid #61afef;
     border-radius: 10px;
 }
